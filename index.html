@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmolientePlus</title>
+        <link rel="stylesheet" href="css/estilos.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="js/script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>EmolientePlus</h1>
+    <nav class="main-nav">
+      <button onclick="showSection('clients')">Clientes</button>
+      <button onclick="showSection('products')">Productos</button>
+      <button onclick="showSection('sales')">Ventas</button>
+      <button onclick="showReports()">Reportes</button>
+    </nav>
+
+    <!-- Clientes -->
+    <section id="clientsSection" class="content-section active">
+      <h2>Gestión de Clientes</h2>
+      <div class="input-group">
+        <label for="clientDNI">DNI:</label>
+        <input type="text" id="clientDNI">
+      </div>
+      <div class="input-group">
+        <label for="clientNames">Nombres:</label>
+        <input type="text" id="clientNames">
+      </div>
+      <div class="input-group">
+        <label for="clientLastnames">Apellidos:</label>
+        <input type="text" id="clientLastnames">
+      </div>
+      <div class="input-group">
+        <label for="clientPoints">Puntos:</label>
+        <input type="number" id="clientPoints" value="0">
+      </div>
+      <div class="action-buttons">
+        <button onclick="addClient()">Registrar Cliente</button>
+        <button onclick="displayClients()">Ver Clientes</button>
+      </div>
+      <div id="clientList" class="list-container" style="display:none;"></div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productsSection" class="content-section">
+      <h2>Gestión de Productos</h2>
+      <div class="input-group">
+        <label for="productCode">Código:</label>
+        <input type="text" id="productCode">
+      </div>
+      <div class="input-group">
+        <label for="productName">Nombre:</label>
+        <input type="text" id="productName">
+      </div>
+      <div class="input-group">
+        <label for="productCategory">Categoría:</label>
+        <select id="productCategory">
+          <option value="">Seleccione</option>
+          <option value="emolientes">Emolientes</option>
+          <option value="panes">Panes</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="productPrice">Precio (S/):</label>
+        <input type="number" id="productPrice" step="0.01">
+      </div>
+      <div class="input-group">
+        <label for="productPoints">Puntos:</label>
+        <input type="number" id="productPoints" value="0">
+      </div>
+      <div class="input-group">
+        <label for="productStock">Stock:</label>
+        <input type="number" id="productStock" value="0">
+      </div>
+      <div class="action-buttons">
+        <button onclick="addProduct()">Registrar Producto</button>
+        <button onclick="displayProducts()">Ver Productos</button>
+      </div>
+      <div id="productList" class="list-container" style="display:none;"></div>
+    </section>
+
+    <!-- Ventas -->
+    <section id="salesSection" class="content-section">
+      <h2>Gestión de Ventas</h2>
+      <div class="ventas-buttons">
+        <button onclick="showSalesList()">Ver Ventas</button>
+        <button onclick="startNewSale()">Vender</button>
+      </div>
+      <div id="salesListContainer" class="list-container" style="display:none;"></div>
+      <div id="sellProductContainer" style="display:none;">
+        <h3>Realizar Venta</h3>
+        <div class="input-group">
+          <label for="searchClientDNI">Buscar Cliente:</label>
+          <input type="text" id="searchClientDNI">
+          <button onclick="searchClientForSale()">Buscar</button>
+        </div>
+        <p id="clientSaleInfo"></p>
+        <div id="productSelectionSection" style="display:none;">
+          <div class="input-group">
+            <label for="saleProductSelect">Producto:</label>
+            <select id="saleProductSelect" onchange="displaySelectedProductInfo()"></select>
+          </div>
+          <p id="selectedProductPriceInfo"></p>
+          <div class="input-group">
+            <label for="productQuantity">Cantidad:</label>
+            <input type="number" id="productQuantity" value="1" min="1">
+          </div>
+          <button onclick="addProductToSale()">Añadir</button>
+        </div>
+        <div id="currentSaleItems" style="margin-top:15px;">
+          <ul id="saleCartList"></ul>
+          <p><strong>Subtotal:</strong> S/ <span id="currentSaleSubtotal">0.00</span></p>
+          <p><strong>IGV (18%):</strong> S/ <span id="currentSaleIGV">0.00</span></p>
+          <p><strong>Total:</strong> S/ <span id="currentSaleTotal">0.00</span></p>
+          <button onclick="completeSale(true)">Finalizar Venta</button>
+        </div>
+      </div>
+      <div id="saleSummaryContainer" class="ticket-summary" style="display:none;">
+        <h3>Resumen de Venta</h3>
+        <pre id="saleSummaryContent"></pre>
+      </div>
+    </section>
+
+    <!-- Reportes -->
+    <section id="reportSection" class="content-section" style="display:none;">
+      <h2>Reportes del Día</h2>
+      <div class="ventas-buttons">
+        <button onclick="showDailySales()">Venta del Día</button>
+        <button onclick="showDailyGifts()">Obsequios</button>
+        <button onclick="showStockReport()">Stock</button>
+      </div>
+      <div id="reportResult" class="list-container"></div>
+    </section>
+  </div>
+</body>
+</html>

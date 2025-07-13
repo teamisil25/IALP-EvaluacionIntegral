@@ -1,0 +1,151 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.main-nav button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.main-nav button:hover {
+  background-color: #2980b9;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.action-buttons,
+.ventas-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.action-buttons button,
+.ventas-buttons button {
+  background-color: #27ae60;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.ventas-buttons button {
+  background-color: #f39c12;
+}
+
+.action-buttons button:hover {
+  background-color: #219150;
+}
+
+.ventas-buttons button:hover {
+  background-color: #e67e22;
+}
+
+.list-container {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.list-item {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #3498db;
+}
+
+.ticket-summary {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 2px dashed #999;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+}
+
+.ticket-summary h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.ticket-summary pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #333;
+}
+
+#reportResult table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+#reportResult th, #reportResult td {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  text-align: left;
+}
+
+.content-section.active {
+  display: block;
+}
